@@ -27,15 +27,38 @@ namespace oraiFeladat
                 Console.Write($"{szam} ");
             }
 
-            
-
-
             Console.WriteLine();
 
             Console.WriteLine(String.Join(" | ",szamok));
 
-            //maximum keresés
+            //maximum keresés Linq-val
             Console.WriteLine($"A legnagyobb elem: {szamok.Max()}");
+            //maximum keresés Linq-val
+            Console.WriteLine($"A legkisebb elem: {szamok.Min()}");
+
+            //maximum keresés algoritmussal
+            int max = szamok[0];
+            int min = szamok[0];
+            for (int i = 0; i < szamok.Length; i++)
+            {
+                if (szamok[i]>max)
+                {
+                    max = szamok[i];
+                }
+                if (szamok[i] < min)
+                {
+                    min = szamok[i];
+                }
+
+            }
+            Console.WriteLine($"A legnagyobb elem algritmussal: {max}");
+            Console.WriteLine($"A legkisebb elem algritmussal: {min}");
+
+            //maximum keresés rendezéssel
+            Array.Sort(szamok);
+            Console.WriteLine($"A legnagyobb elem rendezésel: {szamok[szamok.Length-1]}");
+            Console.WriteLine($"A legkisebb elem rendezésel: {szamok[0]}");
+
 
 
             Console.ReadKey();
